@@ -196,7 +196,7 @@ async def show_stats(message: types.Message, db_pool: asyncpg.Pool):
 
 @router.message ()
 async def forward_to_me (message: types.Message, bot: Bot, db_pool: asyncpg.Pool):
-    if message.from_user.id == 1: 
+    if message.from_user.id == MY_ID: 
         await message.answer("это твой бот не тупи")
         return
     user_id = message.from_user.id
@@ -281,7 +281,7 @@ async def forward_to_me (message: types.Message, bot: Bot, db_pool: asyncpg.Pool
 
     if passed_for_admin > 60:
         last_admin_notification_time[user_id] = current_time
-        admin_info = f"👤 **Пишет пользователь:** {message.from_user.full_name} (@{message.from_user.username or 'no username'})\n🆔 ID: {user_id}"
+        admin_info = f"👤 **Пишет анонимный пользователь:** "
 
         inline_builder = InlineKeyboardBuilder()
         inline_builder.add(InlineKeyboardButton(
