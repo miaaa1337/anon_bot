@@ -1,6 +1,6 @@
 # 👥 AnonBot
 
-An asynchronous, production-ready Telegram bot engineered for local internet communities, featuring custom moderation layers and in-memory rate limiting.
+An asynchronous, production-oriented Telegram bot engineered for local internet communities, featuring custom moderation layers and in-memory rate limiting.
 
 ---
 
@@ -39,7 +39,15 @@ cp .env.example .env
 ```
 *Note*: The .env file contains sensitive data and is completely excluded from Git tracking via .gitignore.
 
-### 3. Initialize Virtual Environment & Install Dependencies
+## 💡 Choose Your Deployment Method:
+
+### 🐳 Option A: Fast Run with Docker & Docker Compose (Recommended)
+```bash
+docker-compose up --build -d
+```
+
+### 🐍 Option B: Manual Setup (Local Virtual Environment)
+### Initialize Virtual Environment & Install Dependencies
 ```bash
 python3 -m venv venv
 source venv/bin/activate
