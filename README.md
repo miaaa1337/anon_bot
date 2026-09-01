@@ -30,29 +30,33 @@ An asynchronous Telegram bot for local communities with anonymous messaging, aut
 
 ### Clone the Repository
 
-bash```
+```
 git clone https://github.com/miaaa1337/anon_bot.git
-cd anon_bot```
+cd anon_bot
+```
 
 ### Configure Environment Variables
 
-bash```
-cp .env.example .env```
+```
+cp .env.example .env
+```
 
 Fill in the required bot token and database credentials.
 
 ### Run with Docker
 
-bash```
-docker-compose up --build -d```
+```
+docker-compose up --build -d
+```
 
 ### Manual Local Setup
 
-bash```
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python main.py```
+python main.py
+```
 
 ## Deployment
 
