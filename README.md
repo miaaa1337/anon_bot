@@ -1,58 +1,61 @@
 # 👥 AnonBot
 
-An asynchronous, production-oriented Telegram bot engineered for local internet communities, featuring custom moderation layers and in-memory rate limiting.
-
----
+An asynchronous Telegram bot for local communities with anonymous messaging, automated moderation, rate limiting, and PostgreSQL persistence.
 
 ## 🛠 Tech Stack
 
-* **Language:** Python 3.11+
-* **Framework:** aiogram 3 (Fully Asynchronous Architecture)
-* **Database:** PostgreSQL
-* **Database Driver:** asyncpg (Asynchronous Connection Pooling)
-* **Configuration:** python-dotenv (Strict Environment Isolation)
-* **Deployment:** ## The bot was deployed on an Ubuntu VPS and run as a persistent systemd service. Docker and Docker Compose are also included for reproducible local setup.
+- Python 3.11+
+- aiogram 3
+- PostgreSQL
+- asyncpg
+- python-dotenv
+- Docker / Docker Compose
+- Ubuntu Linux / systemd
 
----
+## 🚀 Key Features
 
-## 🚀 Key Architectural Features
+1. **In-Memory Rate Limiting**  
+   Tracks recent message timestamps in memory to prevent spam and message flooding.
 
-1. **In-Memory Rate Limiting (Throttling):** Tracks recent message timestamps in memory to prevent spam and message flooding.
-2. **Automated Content Moderation:** Built a custom bad-words filtration mechanism utilizing in-memory caching to instantly intercept restricted content before message forwarding occurs.
-3. **Relational Data Persistence:** Designed a reliable database schema in PostgreSQL to manage user states, route anonymous conversations, and maintain security logs securely.
-4. **Production Deployment:** Runs as a long-lived service on Ubuntu using systemd, with configuration stored in environment variables.
+2. **Automated Content Moderation**  
+   Filters restricted words and content before messages are forwarded.
+
+3. **PostgreSQL Persistence**  
+   Stores user state, anonymous conversation routing data, and moderation-related records.
+
+4. **Production Deployment**  
+   Deployed on an Ubuntu VPS and run as a persistent systemd service.
 
 ## 📦 Installation & Local Setup
 
-### 1. Clone the Repository
-```bash
+### Clone the Repository
+
+bash```
 git clone https://github.com/miaaa1337/anon_bot.git
-cd anon_bot
-```
+cd anon_bot```
 
-### 2. Configure Environment Variables
-Copy the example configuration file and fill in your actual credentials (tokens, database credentials, etc.):
-```bash
-cp .env.example .env
-```
-*Note*: The .env file contains sensitive data and is completely excluded from Git tracking via .gitignore.
+### Configure Environment Variables
 
-## 💡 Choose Your Deployment Method:
+bash```
+cp .env.example .env```
 
-### 🐳 Option A: Fast Run with Docker & Docker Compose (Recommended)
-```bash
-docker-compose up --build -d
-```
+Fill in the required bot token and database credentials.
 
-### 🐍 Option B: Manual Setup (Local Virtual Environment)
-### Initialize Virtual Environment & Install Dependencies
-```bash
+### Run with Docker
+
+bash```
+docker-compose up --build -d```
+
+### Manual Local Setup
+
+bash```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-```
+python main.py```
 
-### 4. Run the Application
-```bash
-python main.py
-```
+## Deployment
+
+The bot was deployed on an Ubuntu VPS and run as a persistent systemd service.
+
+Docker and Docker Compose are included for reproducible local setup.
