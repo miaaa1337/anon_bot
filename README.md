@@ -11,18 +11,16 @@ An asynchronous, production-oriented Telegram bot engineered for local internet 
 * **Database:** PostgreSQL
 * **Database Driver:** asyncpg (Asynchronous Connection Pooling)
 * **Configuration:** python-dotenv (Strict Environment Isolation)
-* **Deployment:** Ubuntu Linux, Systemd (24/7 Daemon Execution Process)
+* **Deployment:** ## The bot was deployed on an Ubuntu VPS and run as a persistent systemd service. Docker and Docker Compose are also included for reproducible local setup.
 
 ---
 
 ## 🚀 Key Architectural Features
 
-1. **Custom In-Memory Rate Limiting (Throttling):** Implemented a high-performance timestamp tracker running in the server's RAM to prevent spam attacks, mitigate flood risks, and ensure high availability.
+1. **In-Memory Rate Limiting (Throttling):** Tracks recent message timestamps in memory to prevent spam and message flooding.
 2. **Automated Content Moderation:** Built a custom bad-words filtration mechanism utilizing in-memory caching to instantly intercept restricted content before message forwarding occurs.
 3. **Relational Data Persistence:** Designed a reliable database schema in PostgreSQL to manage user states, route anonymous conversations, and maintain security logs securely.
-4. **Production DevOps Standards:** Fully isolated from host environments using strict environment variables, running seamlessly as a background process managed by `systemd`.
-
----
+4. **Production Deployment:** Runs as a long-lived service on Ubuntu using systemd, with configuration stored in environment variables.
 
 ## 📦 Installation & Local Setup
 
